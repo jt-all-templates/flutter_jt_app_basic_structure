@@ -4,6 +4,7 @@ import 'package:jt_app_basic_structure/data/models/ui/navigation_screen.dart';
 import 'package:jt_app_basic_structure/data/providers/ui/ui_control_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/user_setting_provider.dart';
 import 'package:jt_app_basic_structure/screens/sample_screen/sample_screen.dart';
+import 'package:jt_app_basic_structure/utils/relative_sizing/widgets/relative_size_initialization.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:util_and_style_cores/utils/global_overlay_manager.dart';
@@ -31,11 +32,13 @@ class AppPersistentLayout extends StatelessWidget {
           ),
           builder: (context, child) {
             return _AppInitializationWidget(
-              child: Material(
-                type: MaterialType.transparency,
-                child: _GlobalOverlayLayouter(
-                  // bottomBar: Container(),
-                  content: child, // can use a scaffold here
+              child: RelativeSizeInitialization(
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: _GlobalOverlayLayouter(
+                    // bottomBar: Container(),
+                    content: child, // can use a scaffold here
+                  ),
                 ),
               ),
             );

@@ -32,17 +32,24 @@ class _SampleScreenState extends State<SampleScreen> {
       width: double.infinity,
       height: double.infinity,
       color: Colors.white,
-      child: const Center(
-        child: Text(
-          'Happy Building Flutter Apps!',
-          maxLines: 10,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.black54,
-          ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            
+          ],
         ),
       ),
+      // child: const Center(
+      //   child: Text(
+      //     'Happy Building Flutter Apps!',
+      //     maxLines: 10,
+      //     style: TextStyle(
+      //       fontSize: 24,
+      //       fontWeight: FontWeight.bold,
+      //       color: Colors.black54,
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

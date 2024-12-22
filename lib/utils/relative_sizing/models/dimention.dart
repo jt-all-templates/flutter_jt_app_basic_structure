@@ -1,0 +1,4 @@
+enum Dimension {
+  width,
+  height,
+}
