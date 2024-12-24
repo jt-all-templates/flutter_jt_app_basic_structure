@@ -10,6 +10,9 @@ class UserProfileProvider extends ChangeNotifier {
   UserProfiles? _userProfile;
   UserProfiles? get userProfile => _userProfile;
 
+  bool get hasEnteredApp => _userProfile?.hasEnteredApp ?? false;
+  DateTime get joinedDate => _userProfile?.joinedDate ?? DateTime.now();
+
   late final Future<void> initializationFuture;
 
   UserProfileProvider() {
@@ -23,6 +26,16 @@ class UserProfileProvider extends ChangeNotifier {
     } catch (e) {
       print('Error: $e');
     }
+  }
+
+  void firstEnterTheApp() {
+    if (_userProfile == null) {
+      throw Exception('Cannot join the app with null profile');
+    }
+    _userProfile!.hasEnteredApp = true;
+    // the join date is set when the profile is created
+    saveUserProfile();
+    notifyListeners();
   }
 
   Future<UserProfiles> _loadUserProfile() async {

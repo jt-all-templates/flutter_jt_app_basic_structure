@@ -7,7 +7,7 @@ class GlobalRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SampleScreen(),
+        builder: (context, state) => const EmptyWhiteScreen(),
       ),
       GoRoute(
         path: '/home',
@@ -15,7 +15,7 @@ class GlobalRouter {
       ),
       GoRoute(
         path: '/guide',
-        builder: (context, state) => const SampleScreen(),
+        builder: (context, state) => const AppGuideScreen(),
       ),
     ],
   );
