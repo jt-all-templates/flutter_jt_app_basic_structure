@@ -4,6 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:jt_app_basic_structure/data/providers/daily_data_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/ui/ui_control_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/user_setting_provider.dart';
+import 'package:jt_app_basic_structure/data/providers/user_stats_provider.dart';
 import 'package:jt_app_basic_structure/widgets/main/app_persistent_layout.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<UserSettingProvider>(
           create: (context) => UserSettingProvider(),
+        ),
+        ChangeNotifierProvider<UserStatsProvider>(
+          create: (context) => UserStatsProvider(),
         ),
         ChangeNotifierProvider<DailyDataProvider>(
           create: (context) => DailyDataProvider(),

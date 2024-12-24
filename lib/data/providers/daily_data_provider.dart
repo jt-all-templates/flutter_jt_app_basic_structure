@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:jt_app_basic_structure/data/models/save/daily_general_data.dart';
+import 'package:jt_app_basic_structure/data/models/save/daily_data.dart';
 import 'package:jt_app_basic_structure/utils/save/share_preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:util_and_style_cores/utils/time_manager.dart';

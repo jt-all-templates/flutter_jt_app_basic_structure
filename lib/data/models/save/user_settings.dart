@@ -1,3 +1,4 @@
+
 class UserSettings {
   bool hasEnteredApp;
   DateTime joinedDate;

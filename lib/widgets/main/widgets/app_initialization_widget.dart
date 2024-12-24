@@ -16,19 +16,28 @@ class _AppInitializationWidgetState extends State<_AppInitializationWidget> {
     _initProcess();
   }
 
-  // some beginning logics. Try not to let the whole app rely on this.
+  // some beginning logics before consuming any data or landing on any screen
   Future<void> _initProcess() async {
+    UserSettingProvider userProfileProvider = context.read<UserSettingProvider>();
+    UserStatsProvider userStatsProvider = context.read<UserStatsProvider>();
+    DailyDataProvider dailyDataProvider = context.read<DailyDataProvider>();
+
+    await userProfileProvider.initializationFuture;
+    await userStatsProvider.initializationFuture;
+    await dailyDataProvider.initializationFuture;
+
+    _goToCorrectLandingScreen();
+    FlutterNativeSplash.remove();
+    print('App initialized');
+  }
+
+  void _goToCorrectLandingScreen() {
     UiControlProvider uiProvider = context.read<UiControlProvider>();
-    UserSettingProvider userSettingProvider =
-        context.read<UserSettingProvider>();
-    await userSettingProvider.initializationFuture;
-    if (userSettingProvider.userSettings!.hasEnteredApp) {
+    if (context.read<UserSettingProvider>().userSettings!.hasEnteredApp) {
       uiProvider.changeScreen(NavigationScreen.home);
     } else {
       uiProvider.changeScreen(NavigationScreen.guide);
     }
-    FlutterNativeSplash.remove();
-    print('App initialized');
   }
 
   @override

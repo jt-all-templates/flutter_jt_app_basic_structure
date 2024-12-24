@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jt_app_basic_structure/data/models/save/daily_data.dart';
 import 'package:jt_app_basic_structure/data/models/ui/navigation_screen.dart';
+import 'package:jt_app_basic_structure/data/providers/daily_data_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/ui/ui_control_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/user_setting_provider.dart';
+import 'package:jt_app_basic_structure/data/providers/user_stats_provider.dart';
 import 'package:jt_app_basic_structure/screens/sample_screen/sample_screen.dart';
 import 'package:jt_app_basic_structure/utils/relative_sizing/widgets/relative_size_initialization.dart';
 import 'package:provider/provider.dart';
