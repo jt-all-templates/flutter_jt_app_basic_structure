@@ -18,7 +18,7 @@ class _AppInitializationWidgetState extends State<_AppInitializationWidget> {
 
   // some beginning logics before consuming any data or landing on any screen
   Future<void> _initProcess() async {
-    UserSettingProvider userProfileProvider = context.read<UserSettingProvider>();
+    UserProfileProvider userProfileProvider = context.read<UserProfileProvider>();
     UserStatsProvider userStatsProvider = context.read<UserStatsProvider>();
     DailyDataProvider dailyDataProvider = context.read<DailyDataProvider>();
 
@@ -33,7 +33,7 @@ class _AppInitializationWidgetState extends State<_AppInitializationWidget> {
 
   void _goToCorrectLandingScreen() {
     UiControlProvider uiProvider = context.read<UiControlProvider>();
-    if (context.read<UserSettingProvider>().userSettings!.hasEnteredApp) {
+    if (context.read<UserProfileProvider>().userProfile!.hasEnteredApp) {
       uiProvider.changeScreen(NavigationScreen.home);
     } else {
       uiProvider.changeScreen(NavigationScreen.guide);

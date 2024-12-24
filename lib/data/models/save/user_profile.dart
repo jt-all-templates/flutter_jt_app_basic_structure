@@ -1,17 +1,17 @@
 
-class UserSettings {
+class UserProfiles {
   bool hasEnteredApp;
   DateTime joinedDate;
   // add other properties as needed.
   // ...
 
-  UserSettings({
+  UserProfiles({
     this.hasEnteredApp = false,
     DateTime? joinedDate,
   }) : joinedDate = joinedDate ?? DateTime.now();
 
-  factory UserSettings.fromJson(Map<String, dynamic> json) {
-    return UserSettings(
+  factory UserProfiles.fromJson(Map<String, dynamic> json) {
+    return UserProfiles(
       hasEnteredApp: json['hasEnteredApp'] ?? false,
       joinedDate: json['joinedDate'] != null
           ? DateTime.parse(json['joinedDate'])

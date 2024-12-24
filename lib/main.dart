@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:jt_app_basic_structure/data/providers/daily_data_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/ui/ui_control_provider.dart';
-import 'package:jt_app_basic_structure/data/providers/user_setting_provider.dart';
+import 'package:jt_app_basic_structure/data/providers/user_profile_provider.dart';
 import 'package:jt_app_basic_structure/data/providers/user_stats_provider.dart';
 import 'package:jt_app_basic_structure/widgets/main/app_persistent_layout.dart';
 import 'package:provider/provider.dart';
@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<UserSettingProvider>(
-          create: (context) => UserSettingProvider(),
+        ChangeNotifierProvider<UserProfileProvider>(
+          create: (context) => UserProfileProvider(),
         ),
         ChangeNotifierProvider<UserStatsProvider>(
           create: (context) => UserStatsProvider(),
