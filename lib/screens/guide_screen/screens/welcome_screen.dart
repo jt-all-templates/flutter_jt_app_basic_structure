@@ -5,7 +5,7 @@ class _WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _GuideScreenBaseLayout(
+    return _GuideScreenBaseLayout(
       title: "Hi!",
       children: [
         // below is an example of how to use CommonSVGIcon and drop shadow, to create a nice and cozy welcome screen

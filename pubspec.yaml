@@ -35,7 +35,7 @@ dependencies:
   util_and_style_cores:
     git:
       url: https://github.com/ttesjt/flutter_util_and_style_cores.git
-      ref: main
+      ref: v2
 # ==========================================================================================================
 # Package set ==============================================================================================
 

@@ -617,8 +617,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: main
-      resolved-ref: "0f3a4b14eab31dc866a1ee2896d97f00646e999a"
+      ref: v2
+      resolved-ref: "94135786181514288d9603c504f03c3b5adb8bfd"
       url: "https://github.com/ttesjt/flutter_util_and_style_cores.git"
     source: git
     version: "0.0.1"

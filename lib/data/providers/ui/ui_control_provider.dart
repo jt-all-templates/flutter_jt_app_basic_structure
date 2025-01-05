@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +19,7 @@ class UiControlProvider extends ChangeNotifier {
 
   BuildContext? _rootContext;
   BuildContext? get rootContext => _rootContext;
+  final Map<String, BuildContext> _contextMap = {};
 
   void setRouter(GoRouter router) {
     _router = router;
@@ -37,14 +39,25 @@ class UiControlProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  OverlayEntry pushOverlayOnTopOfEverything(Widget overlay) {
+  void addContext(String key, BuildContext context) {
+    _contextMap[key] = context;
+  }
+
+  BuildContext? getContext(String key) {
+    return _contextMap[key];
+  }
+
+  OverlayEntry pushOverlayOnTopOfEverything(Widget overlay,
+      {bool builtInSelfRemoval = false,
+      Color backgroundColor = const Color.fromARGB(160, 0, 0, 0)}) {
     if (_rootContext == null) {
       throw Exception('Root context is not set');
     }
     return OverlayManager().showOverlay(
-      context: _rootContext!,
-      overlayContent: overlay,
-    );
+        context: _rootContext!,
+        overlayContent: overlay,
+        backgroundColor: backgroundColor,
+        builtInSelfRemoval: builtInSelfRemoval);
   }
 
   void removeTopOverlay() {
