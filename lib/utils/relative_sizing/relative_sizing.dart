@@ -1,34 +1,82 @@
+import 'package:flutter/material.dart';
 import 'package:jt_app_basic_structure/utils/relative_sizing/models/dimention.dart';
 
 abstract class RelativeSizing {
-  static double screenWidth = 100;
-  static double screenHeight = 100;
-  static double modelWidthReference = 360;
-  static double modelHeightReference = 640;
+  static bool relativeSizingEnabled = false;
+
+  static bool _isDisplaySizeTheScreenSize = true;
+  static bool get isDisplaySizeTheScreenSize => _isDisplaySizeTheScreenSize;
+
+  static double _displayWidth = 100;
+  static double get displayWidth => _displayWidth;
+
+  static double _displayHeight = 100;
+  static double get displayHeight => _displayHeight;
+
+  static const double _modelWidthReference = 360;
+  static double get modelWidthReference => _modelWidthReference;
+
+  static const double _modelHeightReference = 640;
+  static double get modelHeightReference => _modelHeightReference;
 
   static void setScreenSize({
     required double width,
     required double height,
+    bool isDisplaySizeTheScreenSize = true,
   }) {
-    screenWidth = width;
-    screenHeight = height;
+    _displayWidth = width;
+    _displayHeight = height;
+    _isDisplaySizeTheScreenSize = isDisplaySizeTheScreenSize;
+  }
+
+  static void setRelativeSizingEnabled({required bool enabled}) {
+    relativeSizingEnabled = enabled;
+  }
+
+  // this can be useful when working with different screen dimensions and aspect ratios
+  static bool isRichSpacing({
+    required MediaQueryData mediaQueryData,
+    bool requiredLandviewMode = true,
+    double? minRequiredHeight = 700,
+    double? minRequiredWidth = 700,
+  }) {
+    bool isStillRichSpacing = true;
+    if (requiredLandviewMode) {
+      if (mediaQueryData.size.aspectRatio < 1) {
+        isStillRichSpacing = false;
+      }
+    }
+    if (minRequiredHeight != null) {
+      if (mediaQueryData.size.height < minRequiredHeight) {
+        isStillRichSpacing = false;
+      }
+    }
+    if (minRequiredWidth != null) {
+      if (mediaQueryData.size.width < minRequiredWidth) {
+        isStillRichSpacing = false;
+      }
+    }
+    return isStillRichSpacing;
   }
 
   static double fromPercentage(double percent,
       {Dimension dimension = Dimension.width}) {
     if (dimension == Dimension.width) {
-      return (percent / 100) * screenWidth;
+      return (percent / 100) * _displayWidth;
     } else {
-      return (percent / 100) * screenHeight;
+      return (percent / 100) * _displayHeight;
     }
   }
 
   static double fromCommonUnit(double unitSize,
       {Dimension dimension = Dimension.width}) {
+    if (!relativeSizingEnabled) {
+      return unitSize;
+    }
     if (dimension == Dimension.width) {
-      return (screenWidth / modelWidthReference) * unitSize;
+      return (_displayWidth / _modelWidthReference) * unitSize;
     } else {
-      return (screenHeight / modelHeightReference) * unitSize;
+      return (_displayHeight / _modelHeightReference) * unitSize;
     }
   }
 
@@ -37,7 +85,7 @@ abstract class RelativeSizing {
     double percent, {
     double modelWidthToHeightRatio = 2,
   }) {
-    double actualWidthToHeightRatio = screenHeight / screenWidth;
+    double actualWidthToHeightRatio = _displayHeight / _displayWidth;
     if (actualWidthToHeightRatio < modelWidthToHeightRatio) {
       // is wider, then try to stretch the width
       return fromPercentage(percent, dimension: Dimension.width);
@@ -47,3 +95,4 @@ abstract class RelativeSizing {
     }
   }
 }
+
