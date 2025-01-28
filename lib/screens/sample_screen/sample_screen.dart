@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jt_app_basic_structure/utils/relative_sizing/models/dimention.dart';
-import 'package:jt_app_basic_structure/utils/relative_sizing/relative_sizing.dart';
+import 'package:util_and_style_cores/utils/size_utils/models/dimention.dart';
+import 'package:util_and_style_cores/utils/size_utils/size_utils.dart';
 
 part 'widgets/full_screen_loading_example.dart';
 part 'widgets/grids_example.dart';
@@ -98,7 +98,7 @@ class _SampleScreenState extends State<SampleScreen> {
   Widget _buildPadding(Widget child) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: RelativeSizing.fromCommonUnit(10),
+        vertical: SizeUtils.fromCommonUnit(10),
       ),
       child: child,
     );

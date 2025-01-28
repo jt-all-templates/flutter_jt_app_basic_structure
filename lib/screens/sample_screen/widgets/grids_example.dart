@@ -6,21 +6,21 @@ class GridsExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: RelativeSizing.fromPercentage(45, dimension: Dimension.height),
-      width: RelativeSizing.fromCommonUnit(330),
+      height: SizeUtils.fromPercentage(45, dimension: Dimension.height),
+      width: SizeUtils.fromCommonUnit(330),
       decoration: BoxDecoration(
         color: Colors.black12,
-        borderRadius: BorderRadius.circular(RelativeSizing.fromCommonUnit(12)),
+        borderRadius: BorderRadius.circular(SizeUtils.fromCommonUnit(12)),
       ),
       child: GridView.extent(
         childAspectRatio: 0.75,
         // Max width for each grid item
-        maxCrossAxisExtent: RelativeSizing.fromCommonUnit(100),
+        maxCrossAxisExtent: SizeUtils.fromCommonUnit(100),
         // Space between columns
-        crossAxisSpacing: RelativeSizing.fromCommonUnit(10),
+        crossAxisSpacing: SizeUtils.fromCommonUnit(10),
         // Space between rows
-        mainAxisSpacing: RelativeSizing.fromCommonUnit(10),
-        padding: EdgeInsets.all(RelativeSizing.fromCommonUnit(10)),
+        mainAxisSpacing: SizeUtils.fromCommonUnit(10),
+        padding: EdgeInsets.all(SizeUtils.fromCommonUnit(10)),
         children: List.generate(12, (index) {
           return const _SampleGridItem();
         }),
@@ -44,8 +44,7 @@ class _SampleGridItem extends StatelessWidget {
           padding: EdgeInsets.all(constraints.maxWidth * paddingSize),
           decoration: BoxDecoration(
             color: Colors.black12,
-            borderRadius:
-                BorderRadius.circular(RelativeSizing.fromCommonUnit(12)),
+            borderRadius: BorderRadius.circular(SizeUtils.fromCommonUnit(12)),
           ),
           child: Column(
             children: [
@@ -55,7 +54,7 @@ class _SampleGridItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius:
-                      BorderRadius.circular(RelativeSizing.fromCommonUnit(12)),
+                      BorderRadius.circular(SizeUtils.fromCommonUnit(12)),
                 ),
               ),
               Expanded(
@@ -66,7 +65,7 @@ class _SampleGridItem extends StatelessWidget {
                   style: TextStyle(
                     height: 1.1,
                     color: Colors.black54,
-                    fontSize: RelativeSizing.fromCommonUnit(12),
+                    fontSize: SizeUtils.fromCommonUnit(12),
                   ),
                 ),
               ),

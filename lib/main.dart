@@ -8,6 +8,7 @@ import 'package:jt_app_basic_structure/data/providers/user_stats_provider.dart';
 import 'package:jt_app_basic_structure/widgets/main/app_persistent_layout.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:util_and_style_cores/structure/app_state_widget.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -44,62 +45,27 @@ class MyApp extends StatelessWidget {
           create: (context) => UiControlProvider(),
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Chat Demo',
-        home: ScrollConfiguration(
-          behavior: CustomScrollBehavior(),
-          child: const _AppStateWidget(),
+        title: 'Hero\'s Clock',
+        home: AppStateWidget(
+          // onAppLifecycleStateChange: (state) {
+          //   switch (state) {
+          //     case AppLifecycleState.paused ||
+          //           AppLifecycleState.detached ||
+          //           AppLifecycleState.inactive:
+          //       // do something to save.
+          //       break;
+          //     case AppLifecycleState.resumed:
+          //       // do something to check back the progress.
+          //       break;
+
+          //     default:
+          //   }
+          // },
+          child: AppPersistentLayout(),
         ),
       ),
-    );
-  }
-}
-
-class _AppStateWidget extends StatefulWidget {
-  const _AppStateWidget({super.key});
-
-  @override
-  State<_AppStateWidget> createState() => _AppStateWidgetState();
-}
-
-class _AppStateWidgetState extends State<_AppStateWidget>
-    with WidgetsBindingObserver {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.paused ||
-            AppLifecycleState.detached ||
-            AppLifecycleState.inactive:
-        // do something to save.
-        break;
-      case AppLifecycleState.resumed:
-        // do something to check back the progress.
-        break;
-
-      default:
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AppPersistentLayout();
-  }
-}
-
-class CustomScrollBehavior extends ScrollBehavior {
-  @override
-  Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
-    return StretchingOverscrollIndicator(
-      axisDirection: details.direction,
-      child: child,
     );
   }
 }

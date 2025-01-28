@@ -41,8 +41,8 @@ class _TextFieldExampleState extends State<TextFieldExample> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: RelativeSizing.fromCommonUnit(300),
-      height: RelativeSizing.fromCommonUnit(90),
+      width: SizeUtils.fromCommonUnit(300),
+      height: SizeUtils.fromCommonUnit(90),
       child: TextField(
         controller: _controller,
         focusNode: _focusNode,
@@ -64,7 +64,7 @@ class _TextFieldExampleState extends State<TextFieldExample> {
           color: Colors.black54,
         ),
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(RelativeSizing.fromCommonUnit(5)),
+          contentPadding: EdgeInsets.all(SizeUtils.fromCommonUnit(5)),
           fillColor: Colors.grey[350],
           filled: true,
           hintMaxLines: 2,
@@ -78,7 +78,7 @@ class _TextFieldExampleState extends State<TextFieldExample> {
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.all(
-              Radius.circular(RelativeSizing.fromCommonUnit(12)),
+              Radius.circular(SizeUtils.fromCommonUnit(12)),
             ),
           ),
         ),

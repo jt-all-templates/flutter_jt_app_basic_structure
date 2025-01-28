@@ -9,7 +9,7 @@ import 'package:util_and_style_cores/style/buttons/presets/button_preset.dart';
 import 'package:util_and_style_cores/style/svg/common_svg_icon.dart';
 import 'package:util_and_style_cores/themes/common_styles.dart';
 import 'package:util_and_style_cores/utils/color_utils.dart';
-import 'package:util_and_style_cores/utils/flex_sizing.dart';
+import 'package:util_and_style_cores/utils/size_utils/size_utils.dart';
 
 part 'widgets/guide_screen_widgets.dart';
 part 'screens/welcome_screen.dart';
@@ -74,8 +74,7 @@ class _AppGuideScreenState extends State<AppGuideScreen>
 
   @override
   Widget build(BuildContext context) {
-    double deviceScreenWidth = MediaQuery.of(context).size.width;
-    double dotSize = FlexSizing.getFitSize(14, deviceScreenWidth);
+    double dotSize = SizeUtils.fromCommonUnit(14);
 
     // when update this, also update _totalPages and _backgroundColors
     List<Widget> pages = [
@@ -107,12 +106,10 @@ class _AppGuideScreenState extends State<AppGuideScreen>
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                      bottom: FlexSizing.getFitSize(
-                          MediaQuery.of(context).size.height * 0.02,
-                          deviceScreenWidth),
-                      top: FlexSizing.getFitSize(
-                          MediaQuery.of(context).size.height * 0.01,
-                          deviceScreenWidth),
+                      bottom: SizeUtils.fromCommonUnit(
+                          MediaQuery.of(context).size.height * 0.02),
+                      top: SizeUtils.fromCommonUnit(
+                          MediaQuery.of(context).size.height * 0.01),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

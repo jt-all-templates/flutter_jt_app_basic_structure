@@ -15,7 +15,6 @@ class _GuideScreenBaseLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceScreenWidth = MediaQuery.of(context).size.width;
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -24,8 +23,7 @@ class _GuideScreenBaseLayout extends StatelessWidget {
           double maxWidth = constraints.maxWidth;
           return SingleChildScrollView(
             child: Padding(
-              padding:
-                  EdgeInsets.all(FlexSizing.getFitSize(15, deviceScreenWidth)),
+              padding: EdgeInsets.all(SizeUtils.fromCommonUnit(15)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +84,6 @@ class _SelectArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // double deviceScreenHeight = MediaQuery.of(context).size.height;
-    double deviceScreenWidth = MediaQuery.of(context).size.width;
 
     return Container(
       // constraints: BoxConstraints(
@@ -95,22 +92,14 @@ class _SelectArea extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius:
-            BorderRadius.circular(FlexSizing.getFitSize(15, deviceScreenWidth)),
+            BorderRadius.circular(SizeUtils.fromCommonUnit(15)),
       ),
       child: Padding(
-        padding: EdgeInsets.all(FlexSizing.getFitSize(5, deviceScreenWidth)),
+        padding: EdgeInsets.all(SizeUtils.fromCommonUnit(5)),
         child: Column(
           children: children,
         ),
       ),
-      // SingleChildScrollView(
-      //   child: Padding(
-      //     padding: EdgeInsets.all(FlexSizing.getFitSize(10, deviceScreenWidth)),
-      //     child: Column(
-      //       children: children,
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
@@ -128,13 +117,12 @@ class _NavigationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceScreenWidth = MediaQuery.of(context).size.width;
 
     return ButtonPreset(
       normalColor: color,
       onTap: onPressed,
-      height: FlexSizing.getFitSize(40, deviceScreenWidth),
-      width: FlexSizing.getFitSize(200, deviceScreenWidth),
+      height: SizeUtils.fromCommonUnit(40),
+      width: SizeUtils.fromCommonUnit(200),
       boxShadow: [
         CommonBoxShadow(),
       ],

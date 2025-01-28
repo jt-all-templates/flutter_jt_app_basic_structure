@@ -1,4 +1,0 @@
-enum Dimension {
-  width,
-  height,
-}

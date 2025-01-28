@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jt_app_basic_structure/utils/relative_sizing/relative_sizing.dart';
+import 'package:util_and_style_cores/utils/size_utils/size_utils.dart';
 
 class _PrivateContainer extends StatelessWidget {
   const _PrivateContainer({super.key});
@@ -7,17 +7,17 @@ class _PrivateContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: RelativeSizing.fromCommonUnit(300),
-      height: RelativeSizing.fromCommonUnit(200),
+      width: SizeUtils.fromCommonUnit(300),
+      height: SizeUtils.fromCommonUnit(200),
       decoration: BoxDecoration(
         color: Colors.black26,
-        borderRadius: BorderRadius.circular(RelativeSizing.fromCommonUnit(10)),
+        borderRadius: BorderRadius.circular(SizeUtils.fromCommonUnit(10)),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            blurRadius: RelativeSizing.fromCommonUnit(4),
+            blurRadius: SizeUtils.fromCommonUnit(4),
             spreadRadius: 0,
-            offset: Offset(0, RelativeSizing.fromCommonUnit(3)),
+            offset: Offset(0, SizeUtils.fromCommonUnit(3)),
           ),
         ],
       ),

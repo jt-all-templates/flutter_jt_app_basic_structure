@@ -13,11 +13,11 @@ class _HorizontalScrollExampleState extends State<HorizontalScrollExample> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: RelativeSizing.fromCommonUnit(300),
-      height: RelativeSizing.fromCommonUnit(50),
+      width: SizeUtils.fromCommonUnit(300),
+      height: SizeUtils.fromCommonUnit(50),
       decoration: BoxDecoration(
         color: Colors.grey[350],
-        borderRadius: BorderRadius.circular(RelativeSizing.fromCommonUnit(12)),
+        borderRadius: BorderRadius.circular(SizeUtils.fromCommonUnit(12)),
       ),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -71,11 +71,11 @@ class _HorizontalScrollItem extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.black12,
               borderRadius:
-                  BorderRadius.circular(RelativeSizing.fromCommonUnit(7)),
+                  BorderRadius.circular(SizeUtils.fromCommonUnit(7)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black12,
-                  blurRadius: RelativeSizing.fromCommonUnit(5),
+                  blurRadius: SizeUtils.fromCommonUnit(5),
                   offset: const Offset(0, 2),
                 ),
               ],

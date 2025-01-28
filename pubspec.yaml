@@ -33,9 +33,10 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
 
   util_and_style_cores:
+    # path: packages/flutter_util_and_style_cores
     git:
       url: https://github.com/ttesjt/flutter_util_and_style_cores.git
-      ref: v2
+      ref: v3
 # ==========================================================================================================
 # Package set ==============================================================================================
 
